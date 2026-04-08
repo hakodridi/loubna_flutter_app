@@ -241,8 +241,11 @@ class _ProductCard extends StatelessWidget {
     final badgeBg = badgeGreen
         ? _kGreen.withValues(alpha: 0.15)
         : _kGold.withValues(alpha: 0.15);
-    final imageUrl =
-        p['image'] != null ? '${ApiService.storageUrl}/${p['image']}' : null;
+    // Old: manual URL construction — broken on Laravel Cloud
+    // final imageUrl =
+    //     p['image'] != null ? '${ApiService.storageUrl}/${p['image']}' : null;
+    // Now: API returns full URL via Storage::url() accessor
+    final imageUrl = p['image'] as String?;
 
     return GestureDetector(
       onTap: onTap,
@@ -403,8 +406,11 @@ class _ProductDetailPage extends StatelessWidget {
     final badgeBg = badgeGreen
         ? _kGreen.withValues(alpha: 0.15)
         : _kGold.withValues(alpha: 0.15);
-    final imageUrl =
-        p['image'] != null ? '${ApiService.storageUrl}/${p['image']}' : null;
+    // Old: manual URL construction — broken on Laravel Cloud
+    // final imageUrl =
+    //     p['image'] != null ? '${ApiService.storageUrl}/${p['image']}' : null;
+    // Now: API returns full URL via Storage::url() accessor
+    final imageUrl = p['image'] as String?;
 
     final specs = p['specs'];
     final specsList = specs is List ? specs : [];

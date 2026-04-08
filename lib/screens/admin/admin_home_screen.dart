@@ -577,9 +577,12 @@ class _ProductTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs       = Theme.of(context).colorScheme;
     final p        = product;
-    final imageUrl = p['image'] != null
-        ? '${ApiService.storageUrl}/${p['image']}'
-        : null;
+    // Old: manual URL construction — broken on Laravel Cloud
+    // final imageUrl = p['image'] != null
+    //     ? '${ApiService.storageUrl}/${p['image']}'
+    //     : null;
+    // Now: API returns full URL via Storage::url() accessor
+    final imageUrl = p['image'] as String?;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
@@ -803,9 +806,12 @@ class _ProductFormScreenState extends State<_ProductFormScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final existingImageUrl = widget.product?['image'] != null
-        ? '${ApiService.storageUrl}/${widget.product!['image']}'
-        : null;
+    // Old: manual URL construction — broken on Laravel Cloud
+    // final existingImageUrl = widget.product?['image'] != null
+    //     ? '${ApiService.storageUrl}/${widget.product!['image']}'
+    //     : null;
+    // Now: API returns full URL via Storage::url() accessor
+    final existingImageUrl = widget.product?['image'] as String?;
 
     final cs = Theme.of(context).colorScheme;
     return Scaffold(

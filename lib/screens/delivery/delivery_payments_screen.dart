@@ -262,7 +262,8 @@ class _PaymentCard extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.network(
-                        '${ApiService.storageUrl}/$photoPath',
+                        // '${ApiService.storageUrl}/$photoPath',
+                        photoPath!,  // API now returns full URL via Storage::url() accessor
                         height: 180,
                         width: double.infinity,
                         fit: BoxFit.cover,
@@ -346,7 +347,8 @@ class _PaymentCard extends StatelessWidget {
           body: Center(
             child: InteractiveViewer(
               child: Image.network(
-                '${ApiService.storageUrl}/$path',
+                // '${ApiService.storageUrl}/$path',
+                path,  // API now returns full URL via Storage::url() accessor
                 errorBuilder: (ctx2, __, ___) => Text(
                   AppLocalizations.of(ctx2).get('failed_to_load_image'),
                   style: const TextStyle(color: Colors.white),

@@ -373,7 +373,10 @@ class _PaymentReceiptTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final url = '${ApiService.storageUrl}/$path';
+    // Old: manual URL construction — broken on Laravel Cloud
+    // final url = '${ApiService.storageUrl}/$path';
+    // Now: API returns full URL via Storage::url() accessor
+    final url = path;
     return Container(
       decoration: BoxDecoration(
         border: Border(top: BorderSide(color: cs.outlineVariant)),
