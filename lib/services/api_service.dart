@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ApiService {
   static String get baseUrl => 'https://loubna-laravel-project-main-mhonqj.free.laravel.cloud/api';
 
-  static String get storageUrl => 'https://loubna-laravel-project-main-mhonqj.free.laravel.cloud/api/storage';
+  static String get storageUrl => 'https://loubna-laravel-project-main-mhonqj.free.laravel.cloud/files';
 
   static Future<String?> _getToken() async {
     final prefs = await SharedPreferences.getInstance();
