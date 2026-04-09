@@ -244,7 +244,7 @@ class _ProductCard extends StatelessWidget {
     // Old: manual URL construction — broken on Laravel Cloud
     // final imageUrl =
     //     p['image'] != null ? '${ApiService.storageUrl}/${p['image']}' : null;
-    // Now: API returns full URL via Storage::url() accessor
+    // Now: API returns full URL via url('/files/...') accessor
     final imageUrl = p['image'] as String?;
 
     return GestureDetector(
